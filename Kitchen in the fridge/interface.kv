@@ -1,0 +1,171 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+<MainWindow>:
+    name: "Home"
+    canvas:
+        Color:
+            rgb: (.75, .85, .92, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        Label:
+            text: "KITCHEN IN THE FRIDGE"
+            id: kitf_title
+            font_name: "Royalacid.ttf"
+            font_size: 30
+            color: .04, .07, .16, 1
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "right": 1}
+
+        ScrollView:
+            size_hint: 1, .90
+            pos_hint: {"top": .85, "right": 1}
+            id: scroll_ingredients
+
+        GridLayout:
+            rows: 1
+            cols: 2
+            size_hint: 1, .15
+            pos_hint: {"top": .15, "right": 1}
+            Button:
+                text: "Add ingredient"
+                font_size: 24
+                font_name: "Royalacid.ttf"
+                background_color: "#0B132B"
+                on_release:
+                    app.root.current = "Add ingredient"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Search recipes"
+                font_size: 24
+                font_name: "Royalacid.ttf"
+                background_color: "#0B132B"
+                on_release:
+                    app.root.current = "Search recipes"
+                    root.manager.transition.direction = "right"
+        
+<SecondWindow>:
+    name: "Add ingredient"
+
+    ingredient_name: ingredient_name
+
+    canvas:
+        Color:
+            rgb: (.75, .85, .92, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        Label:
+            text: "KITCHEN IN THE FRIDGE"
+            id: kitf_title
+            font_name: "Royalacid.ttf"
+            font_size: 30
+            color: .04, .07, .16, 1
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "right": 1}
+
+        GridLayout:
+            cols:1
+            size_hint: 1, .40
+            pos_hint: {"top": .90, "right": 1}
+
+            Label:
+                text: "Ingredient name: "
+                color: .04, .07, .16, 1
+                font_name: "Royalacid.ttf"
+                font_size: 22
+
+            GridLayout:
+                cols:3
+                size_hint: 1, .60
+                pos_hint: {"top": .20, "right": 1}
+
+                Label:
+                    text: ""
+                    font_size: 22
+
+                TextInput:
+                    id: ingredient_name
+                    multiline: False
+        
+                Label:
+                    text: ""
+                    font_size: 22
+
+            Label:
+                text: ""
+                font_size: 22
+
+            GridLayout:
+                cols:3
+                size_hint: 1, .60
+                pos_hint: {"top": .20, "right": 1}
+
+                Label:
+                    text: ""
+                    font_size: 22
+
+                Button:
+                    text: "Save ingredient"
+                    font_size: 22
+                    font_name: "Royalacid.ttf"
+                    background_color: "#0B132B"
+                    on_release:
+                        app.root.current = "Home"
+                        root.manager.transition.direction = "right"
+                        root.submit()
+                
+                Label:
+                    text: ""
+                    font_size: 22
+
+<ThirdWindow>:
+    name: "Search recipes"
+
+    canvas:
+        Color:
+            rgb: (.75, .85, .92, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    FloatLayout:
+        Label:
+            text: "KITCHEN IN THE FRIDGE"
+            id: kitf_title
+            font_name: "Royalacid.ttf"
+            font_size: 30
+            color: .04, .07, .16, 1
+            size_hint: 1, .1
+            pos_hint: {"top": 1, "right": 1}
+
+        ScrollView:
+            size_hint: 1, .90
+            pos_hint: {"top": .90, "right": 1}
+
+        GridLayout:
+            cols:3
+            size_hint: 1, .15
+            pos_hint: {"top": .20, "right": 1}
+
+            Label:
+                text: ""
+                font_size: 22
+
+            Button:
+                text: "Go back"
+                font_size: 24
+                font_name: "Royalacid.ttf"
+                background_color: "#0B132B"
+                size_hint: 1, .15
+                on_release:
+                    app.root.current = "Home"
+                    root.manager.transition.direction = "right"
+
+            Label:
+                text: ""
+                font_size: 22

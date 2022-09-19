@@ -1,0 +1,65 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+<MainWindow>:
+    name: "Home"
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+        Button:
+            text: "Save"
+            background_color: "red"
+            #First number is width, second is height
+            size_hint: .5, .25
+            on_release:
+                app.root.current = "Home"
+                root.manager.transition.direction = "right"
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+        Button:
+            text: "Save"
+            background_color: "red"
+            #First number is width, second is height
+            size_hint: .5, .25
+            on_release:
+                app.root.current = "Home"
+                root.manager.transition.direction = "right"
+
+
+<SecondWindow>:
+    name: "Add ingredient"
+
+    GridLayout:
+        cols:1
+
+        Label:
+            text: "Ingredient name: "
+
+        TextInput:
+            id: ingredient_name
+            multiline: False
+
+        Button:
+            text: "Save"
+            background_color: "red"
+            #First number is width, second is height
+            size_hint: .5, .5
+            on_release:
+                app.root.current = "Home"
+                root.manager.transition.direction = "right"
+
+<ThirdWindow>:
+    name: "Search recipes"
+
+    GridLayout:
+        cols:1
+
+        Button:
+            text: "Save"
+            background_color: "red"
+            on_release:
+                app.root.current = "Home"
+                root.manager.transition.direction = "right"
